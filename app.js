@@ -15,7 +15,9 @@ app.get('/reviews.json', function (req, res) {
       if(page) {
         var start = page * 10;
         for( var i = start  ; i < (start+10) && jsonObj.data.length; i++) {
-           responseObj.data.push(jsonObj.data[i]);
+            if(jsonObj.data[i]){
+             responseObj.data.push(jsonObj.data[i]);
+            }
         }
         res.send(responseObj);
         return;
