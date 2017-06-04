@@ -7,6 +7,6 @@ app.get('/reviews.json', function (req, res) {
    res.sendFile(path.normalize(__dirname + '/reviews.json'))
 })
 
-app.listen(8000, function () {
+app.listen(process.env.PORT || 8000, function () {
   console.log('Example app listening on port 8000!')
 })
