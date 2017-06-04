@@ -10,7 +10,6 @@ app.get('/reviews.json', function (req, res) {
     total_reviews: jsonObj.total_reviews,
     data:[]
   }
-  console.log();
     if(req.query){
       var page = req.query['page'];
       if(page) {
@@ -18,9 +17,11 @@ app.get('/reviews.json', function (req, res) {
         for( var i = start  ; i < (start+10) && jsonObj.data.length; i++) {
            responseObj.data.push(jsonObj.data[i]);
         }
+        res.send(responseObj);
+        return;
       }
     }
-  res.send(responseObj);
+  res.send(jsonObj);
 })
 
 app.listen(process.env.PORT || 8000, function () {
