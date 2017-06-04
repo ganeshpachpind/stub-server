@@ -2,6 +2,10 @@ const express = require('express')
 const path = require('path')
 const fs = require('fs')
 const app = express()
+var bodyParser = require('body-parser')
+
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 app.get('/reviews.json', function (req, res) {
   var jsonObj = JSON.parse(fs.readFileSync(__dirname + '/reviews.json', 'utf8'));
@@ -25,6 +29,12 @@ app.get('/reviews.json', function (req, res) {
     }
   res.send(jsonObj);
 })
+
+app.post('/review', function (req, res) {
+  console.log(req.body);      // your JSON
+  res.sendStatus(200);
+  }
+);
 
 app.listen(process.env.PORT || 8000, function () {
   console.log('stub app started')
