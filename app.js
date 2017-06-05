@@ -32,7 +32,7 @@ app.get('/reviews.json', function (req, res) {
 
 app.post('/review', function (req, res) {
   console.log(req.body);      // your JSON
-  res.send("OK...");
+  res.sendStatus(200);
   }
 );
 
