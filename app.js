@@ -31,8 +31,17 @@ app.get('/reviews.json', function (req, res) {
 })
 
 app.post('/review', function (req, res) {
-  console.log(req.body);      // your JSON
-  res.sendStatus(200);
+  console.log(req.body);
+  // your JSON
+    var review = {
+      title: req.body.review.title,
+      message:req.body.review.message,
+      rating:req.body.review.rating,
+      author:req.body.review.author,
+      foreignLanguage:req.body.review.foreignLanguage,
+      country:req.body.review.country
+    }
+  res.send(review);
   }
 );
 
