@@ -2,7 +2,7 @@
 This is basic app to provide local api for test or debug purpose.
 
 # How to Run
-`npm install`
+`npm install`  
 `node app.js`
 
 http://localhost:8000/data
