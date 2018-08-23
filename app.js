@@ -7,8 +7,8 @@ var bodyParser = require('body-parser')
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
-app.get('/reviews.json', function (req, res) {
-  var jsonObj = JSON.parse(fs.readFileSync(__dirname + '/reviews.json', 'utf8'));
+app.get('/data', function (req, res) {
+  var jsonObj = JSON.parse(fs.readFileSync(__dirname + '/data.json', 'utf8'));
   var responseObj= {
     status: jsonObj.status,
     total_reviews: jsonObj.total_reviews,
